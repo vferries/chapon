@@ -1,0 +1,16 @@
+<form (ngSubmit)="submit(equipeForm.value)" [formGroup]="equipeForm">
+  <h2>Composition</h2>
+  <md-radio-group class="vertical-radio-group" formControlName="composition" (change)="changeComposition()">
+    <md-radio-button class="vertical-radio-button" *ngFor="let compo of compositions" [value]="compo.code">
+      {{compo.label}}
+    </md-radio-button>
+  </md-radio-group>
+
+  <h2>Équipiers</h2>
+  <app-equipier
+    *ngFor="let config of configs"
+    [config]="config"
+    [group]="equipiers">
+  </app-equipier>
+  <button type="submit">Envoyer</button>
+</form>

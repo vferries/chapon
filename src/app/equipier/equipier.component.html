@@ -1,0 +1,9 @@
+<md-input-container [formGroup]="group">
+  <label>{{config.label}}</label>
+  <input type="text" mdInput formControlName="{{config.fieldName}}" [mdAutocomplete]="auto">
+</md-input-container>
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let option of filteredOptions | async" [value]="option">
+    {{ option }}
+  </md-option>
+</md-autocomplete>
